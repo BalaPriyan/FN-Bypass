@@ -4,6 +4,7 @@ from pyrogram.filters import command, user
 from os import path as ospath, execl
 from asyncio import create_subprocess_exec
 from sys import executable
+import webbrowser
 
 
 @Bypass.on_message(command("restart") & user(Config.OWNER_ID))
@@ -29,9 +30,17 @@ async def restart():
         except Exception as e:
             LOGGER.error(e)
 
+async def run_html_file():
+    webbrowser.open('index.html')
 
-Bypass.start()
-LOGGER.info("FZ Bot Started!")
-Bypass.loop.run_until_complete(restart())
-idle()
-Bypass.stop()
+
+async def main():
+    await asyncio.gather(
+        Bypass.start(),
+        run_html_file()
+    )
+
+
+if __name__ == "__main__":
+    LOGGER.info("FZ Bot Started!")
+    asyncio.run(main())
