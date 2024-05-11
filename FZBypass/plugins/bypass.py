@@ -33,9 +33,9 @@ async def bypass_check(client, message):
         txt = message.text
         entities = message.entities
     else:
-        return await message.reply("<i>No Link Provided!</i>",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/TomenBots",),]]),))
+        return await message.reply("<i>No Link Provided!</i>",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/TomenBots",),]]),)
 
-    wait_msg = await message.reply("<i>Bypassing...</i>",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/TomenBots",),]]),))
+    wait_msg = await message.reply("<i>Bypassing...</i>",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/TomenBots",),]]),)
     start = time()
 
     link, tlinks, no = "", [], 0
@@ -82,7 +82,7 @@ async def bypass_check(client, message):
         tg_txt += tg_data
         if len(tg_txt) > 4000:
             await wait_msg.edit(tg_txt, disable_web_page_preview=True)
-            wait_msg = await message.reply("<i>Fetching...</i>", reply_to_message_id=wait_msg.id,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/TomenBots",),]]),))
+            wait_msg = await message.reply("<i>Fetching...</i>", reply_to_message_id=wait_msg.id,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/TomenBots",),]]),)
             tg_txt = ""
             await asleep(2.5)
 
