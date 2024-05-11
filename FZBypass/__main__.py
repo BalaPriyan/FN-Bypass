@@ -44,6 +44,9 @@ async def run_http_server():
 async def main():
     await asyncio.gather(
         Bypass.start(),
+        Bypass.loop.run_until_complete(restart()),
+        idle(),
+        Bypass.stop(),
         run_http_server()
     )
 
