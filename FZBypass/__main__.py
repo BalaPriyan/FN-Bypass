@@ -4,6 +4,7 @@ from pyrogram.filters import command, user
 from os import path as ospath, execl
 from asyncio import create_subprocess_exec
 from sys import executable
+import asyncio
 import http.server
 import socketserver
 import threading
