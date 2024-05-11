@@ -102,7 +102,7 @@ class script(object):
 `katdrive.org`✅️ \n
 `new*.gdtot.*`|❌️ \n
 `new*.filepress.store` + `filebee.xyz` + `onlystream.xyz` + `pressbee.xyz`✅️ \n
-`sharer.pw`❌""
+`sharer.pw`❌"""
 
 
 
