@@ -13,19 +13,19 @@ async def help(bot,update):
                    ])
     await update.message.edit(text = text,reply_markup = keybord)
 
-@Client.on_callback_query(filters.regex('thumbnail'))
+@Client.on_callback_query(filters.regex('scrape'))
 async def scrape(bot,update):
     text = script.SCRAPE_TXT
     keybord = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back",callback_data = "help")]])
     await update.message.edit(text = text,reply_markup = keybord)
 
-@Client.on_callback_query(filters.regex('caption'))
+@Client.on_callback_query(filters.regex('shorten'))
 async def shorten(bot,update):
     text = script.SHORTENER_TXT
     keybord = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back",callback_data = "help")]])
     await update.message.edit(text = text,reply_markup = keybord)
 
-@Client.on_callback_query(filters.regex('donate'))
+@Client.on_callback_query(filters.regex('gdrive'))
 async def gdrive(bot,update):
     text = script.GDRIVE_TXT
     keybord = InlineKeyboardMarkup([  [InlineKeyboardButton("🔙 Back",callback_data = "help")]])
