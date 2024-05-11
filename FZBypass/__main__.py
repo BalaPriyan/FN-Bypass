@@ -33,23 +33,8 @@ async def restart():
         except Exception as e:
             LOGGER.error(e)
 
-async def run_http_server():
-    class Handler(http.server.SimpleHTTPRequestHandler):
-        pass
-    with socketserver.TCPServer(("", 8080), Handler) as httpd:
-        LOGGER.info("HTTP server serving at port 8080")
-        httpd.serve_forever()
-
-
-async def main():
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-    await asyncio.gather(
-        Bypass.start(),
-        run_http_server()
-    )
-
-if __name__ == "__main__":
-    LOGGER.info("FZ Bot Started!")
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(main())
+Bypass.start()
+LOGGER.info("FZ Bot Started!")
+Bypass.loop.run_until_complete(restart())
+idle()
+Bypass.stop()
