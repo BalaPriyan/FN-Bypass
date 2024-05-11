@@ -4,7 +4,9 @@ from pyrogram.filters import command, user
 from os import path as ospath, execl
 from asyncio import create_subprocess_exec
 from sys import executable
-import webbrowser
+import http.server
+import socketserver
+import threading
 
 
 @Bypass.on_message(command("restart") & user(Config.OWNER_ID))
@@ -30,8 +32,12 @@ async def restart():
         except Exception as e:
             LOGGER.error(e)
 
-async def run_html_file():
-    webbrowser.open('index.html')
+async def run_http_server():
+    class Handler(http.server.SimpleHTTPRequestHandler):
+        pass
+    with socketserver.TCPServer(("", 8080), Handler) as httpd:
+        LOGGER.info("HTTP server serving at port 8080")
+        httpd.serve_forever()
 
 
 async def main():
