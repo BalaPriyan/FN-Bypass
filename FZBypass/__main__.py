@@ -42,15 +42,14 @@ async def run_http_server():
 
 
 async def main():
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
     await asyncio.gather(
         Bypass.start(),
-        Bypass.loop.run_until_complete(restart()),
-        idle(),
-        Bypass.stop(),
         run_http_server()
     )
 
-
 if __name__ == "__main__":
     LOGGER.info("FZ Bot Started!")
-    asyncio.run(main())
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(main())
