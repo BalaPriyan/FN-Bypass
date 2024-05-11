@@ -20,7 +20,7 @@ async def start_msg(client, message):
     await message.reply(
         f"""<i>I Can Bypass Various Shortener Links, Scrape links, and More ... </i>""",
         quote=True,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/TomenBots",),]]),)
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/BalapriyanBots",),]]),)
 
 
 @Bypass.on_message(BypassFilter & (user(Config.OWNER_ID) | AuthChatsTopics))
@@ -33,9 +33,9 @@ async def bypass_check(client, message):
         txt = message.text
         entities = message.entities
     else:
-        return await message.reply("<i>No Link Provided!</i>",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/TomenBots",),]]),)
+        return await message.reply("<i>No Link Provided!</i>",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/BalapriyanBots",),]]),)
 
-    wait_msg = await message.reply("<i>Bypassing...</i>",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/TomenBots",),]]),)
+    wait_msg = await message.reply("<i>Bypassing...</i>",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/BalapriyanBots",),]]),)
     start = time()
 
     link, tlinks, no = "", [], 0
@@ -76,13 +76,13 @@ async def bypass_check(client, message):
     end = time()
 
     if len(parse_data) != 0:
-        parse_data[-1] = (parse_data[-1] + f"<b>Power by [BalaPriyan](https://t.me/BalaPriyanBots) )" )
+        parse_data[-1] = (parse_data[-1] + f" \n <b>Power by [BalaPriyan](https://t.me/BalaPriyanBots) )" )
     tg_txt = "\n\n"
     for tg_data in parse_data:
         tg_txt += tg_data
         if len(tg_txt) > 4000:
             await wait_msg.edit(tg_txt, disable_web_page_preview=True)
-            wait_msg = await message.reply("<i>Fetching...</i>", reply_to_message_id=wait_msg.id,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/TomenBots",),]]),)
+            wait_msg = await message.reply("<i>Fetching...</i>", reply_to_message_id=wait_msg.id,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/BalapriyanBots",),]]),)
             tg_txt = ""
             await asleep(2.5)
 
