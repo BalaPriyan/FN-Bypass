@@ -32,3 +32,6 @@ async def restart():
 
 Bypass.start()
 LOGGER.info("FZ Bot Started!")
+Bypass.loop.run_until_complete(restart())
+idle()
+Bypass.stop()
