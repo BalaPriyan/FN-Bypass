@@ -2,16 +2,27 @@ from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup)
 from pyrogram import Client , filters
 from FZBypass.plugins.script import *
 
-@Client.on_callback_query(filters.regex('help'))
-async def help(bot,update):
+@Client.on_message(filters.command("help"))
+async def help_command(bot, update):
     text = script.HELP_TXT.format(update.from_user.mention)
-    keybord = InlineKeyboardMarkup([ 
-                    [InlineKeyboardButton('Gdrive', callback_data='gdrive'),
-                    InlineKeyboardButton('shorten', callback_data='shorten')],
-                    [InlineKeyboardButton('scrape', callback_data='scrape'),
-                    InlineKeyboardButton("✖️ Close",callback_data = "cancel")]
-                   ])
-    await update.message.edit(text = text,reply_markup = keybord)
+    keyboard = InlineKeyboardMarkup([ 
+        [InlineKeyboardButton('Gdrive', callback_data='gdrive'),
+         InlineKeyboardButton('shorten', callback_data='shorten')],
+        [InlineKeyboardButton('scrape', callback_data='scrape'),
+         InlineKeyboardButton("✖️ Close", callback_data="cancel")]
+    ])
+    await update.message.reply(text=text, reply_markup=keyboard)
+
+@Client.on_callback_query(filters.regex('help'))
+async def help_callback(bot, update):
+    text = script.HELP_TXT.format(update.from_user.mention)
+    keyboard = InlineKeyboardMarkup([ 
+        [InlineKeyboardButton('Gdrive', callback_data='gdrive'),
+         InlineKeyboardButton('shorten', callback_data='shorten')],
+        [InlineKeyboardButton('scrape', callback_data='scrape'),
+         InlineKeyboardButton("✖️ Close", callback_data="cancel")]
+    ])
+    await update.message.edit(text=text, reply_markup=keyboard)
 
 @Client.on_callback_query(filters.regex('scrape'))
 async def scrape(bot,update):
