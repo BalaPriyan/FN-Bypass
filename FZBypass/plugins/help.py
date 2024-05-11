@@ -1,6 +1,6 @@
 from pyrogram.types import (InlineKeyboardButton, InlineKeyboardMarkup)
 from pyrogram import Client , filters
-from script import *
+from FZBypass.plugins.script import *
 
 @Client.on_callback_query(filters.regex('help'))
 async def help(bot,update):
