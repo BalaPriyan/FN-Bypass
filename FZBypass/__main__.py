@@ -44,7 +44,7 @@ async def run_http_server():
 async def main():
     await asyncio.gather(
         Bypass.start(),
-        run_html_file()
+        run_http_server()
     )
 
 
