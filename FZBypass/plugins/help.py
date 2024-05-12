@@ -3,7 +3,7 @@ from pyrogram import Client , filters
 from FZBypass.plugins.script import *
 
 @Client.on_message(filters.command("help"))
-async def help_command(bot, message):
+async def help_command(client, message):
     text = script.HELP_TXT.format(update.from_user.mention)
     keyboard = InlineKeyboardMarkup([ 
         [InlineKeyboardButton('Gdrive', callback_data='gdrive'),
