@@ -14,7 +14,7 @@ async def help_command(bot, message):
     await message.reply(text=text, reply_markup=keyboard)
 
 @Client.on_callback_query(filters.regex('help'))
-async def help_callback(bot, message):
+async def help(bot, message):
     text = script.HELP_TXT.format(message.from_user.mention)
     keyboard = InlineKeyboardMarkup([ 
         [InlineKeyboardButton('GDRIVE', callback_data='gdrive'),
