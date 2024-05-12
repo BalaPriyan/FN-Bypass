@@ -6,9 +6,9 @@ from FZBypass.plugins.script import *
 async def help_command(bot, message):
     text = script.HELP_TXT.format(message.from_user.mention)
     keyboard = InlineKeyboardMarkup([ 
-        [InlineKeyboardButton('Gdrive', callback_data='gdrive'),
-         InlineKeyboardButton('shorten', callback_data='shorten')],
-        [InlineKeyboardButton('scrape', callback_data='scrape'),
+        [InlineKeyboardButton('GDRIVE', callback_data='gdrive'),
+         InlineKeyboardButton('SHORTENER, callback_data='shorten')],
+        [InlineKeyboardButton('SCRAPE, callback_data='scrape'),
          InlineKeyboardButton("✖️ Close", callback_data="cancel")]
     ])
     await message.reply(text=text, reply_markup=keyboard)
@@ -22,7 +22,7 @@ async def help_callback(bot, message):
         [InlineKeyboardButton('scrape', callback_data='scrape'),
          InlineKeyboardButton("✖️ Close", callback_data="cancel")]
     ])
-    await message.reply_text(text=text, reply_markup=keyboard)
+    await update.message.edit(text=text, reply_markup=keyboard)
 
 @Client.on_callback_query(filters.regex('scrape'))
 async def scrape(bot,update):
