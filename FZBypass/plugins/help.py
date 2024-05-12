@@ -11,7 +11,7 @@ async def help_command(bot, update):
         [InlineKeyboardButton('scrape', callback_data='scrape'),
          InlineKeyboardButton("✖️ Close", callback_data="cancel")]
     ])
-    await update.message.reply(text=text, reply_markup=keyboard)
+    await message.reply(text=text, reply_markup=keyboard)
 
 @Client.on_callback_query(filters.regex('help'))
 async def help_callback(bot, update):
