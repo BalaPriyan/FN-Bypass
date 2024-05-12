@@ -66,12 +66,12 @@ async def bypass_check(client, message):
                 bp_link = f"\n{ui} <b>{ind}x Bypass:</b> {lplink}" + bp_link
                 ui = ""
         else:
-            bp_link = f"\n<b>Bypass:</b> {result}"
+            bp_link = f"\n◉<b>Bypass:</b> {result}"
 
         if is_excep_link(link):
             parse_data.append(f"{bp_link}\n\n")
         else:
-            parse_data.append(f"\n\n<b>Source:</b> {link}{bp_link}")
+            parse_data.append(f"\n\n◉<b>Source:</b> {link}{bp_link}")
 
     end = time()
 
@@ -109,13 +109,13 @@ async def inline_query(client, query):
             end = time()
 
             if not is_excep_link(link):
-                bp_link = (f"<b>Source:</b> {link}\n\n<b>Bypass:</b> {bp_link}")
+                bp_link = (f"\n\n◉<b>Source:</b> {link}\n\n<b>Bypass:</b> {bp_link}")
             answers.append(
                 InlineQueryResultArticle(title="✅️ Bypass Link Success !",input_message_content=InputTextMessageContent(f"{bp_link}\n\n</b>",disable_web_page_preview=True,),
                     description=f"Bypass via !bp {link}",
                     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Bypass Again",switch_inline_query_current_chat="!bp ",),InlineKeyboardButton("Channel", url="https://t.me/BalaPriyanBots")]]),))
         except Exception as e:
-            bp_link = f"<b>Bypass Error:</b> {e}"
+            bp_link = f"◉<b>Bypass Error:</b> {e}"
             end = time()
 
             answers.append(
