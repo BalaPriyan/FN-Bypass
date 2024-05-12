@@ -14,15 +14,15 @@ async def help_command(bot, message):
     await message.reply(text=text, reply_markup=keyboard)
 
 @Client.on_callback_query(filters.regex('help'))
-async def help_callback(bot, update):
-    text = script.HELP_TXT.format(update.from_user.mention)
+async def help_callback(bot, message):
+    text = script.HELP_TXT.format(message.from_user.mention)
     keyboard = InlineKeyboardMarkup([ 
         [InlineKeyboardButton('Gdrive', callback_data='gdrive'),
          InlineKeyboardButton('shorten', callback_data='shorten')],
         [InlineKeyboardButton('scrape', callback_data='scrape'),
          InlineKeyboardButton("✖️ Close", callback_data="cancel")]
     ])
-    await update.message.edit(text=text, reply_markup=keyboard)
+    await message.reply_text(text=text, reply_markup=keyboard)
 
 @Client.on_callback_query(filters.regex('scrape'))
 async def scrape(bot,update):
