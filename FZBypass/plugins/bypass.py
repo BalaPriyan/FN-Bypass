@@ -33,9 +33,9 @@ async def bypass_check(client, message):
         txt = message.text
         entities = message.entities
     else:
-        return await message.reply("<i>No Link Provided!</i>",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/BalapriyanBots",),]]),)
+        return await message.reply("<i>No Link Provided!</i> \n\n <b>Power by</b>: @BalaPriyanBots",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/BalapriyanBots",),]]),)
 
-    wait_msg = await message.reply("<i>Bypassing...</i>",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/BalapriyanBots",),]]),)
+    wait_msg = await message.reply("<i>Bypassing...</i> \n\n <b>Power by</b>: @BalaPriyanBots",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/BalapriyanBots",),]]),)
     start = time()
 
     link, tlinks, no = "", [], 0
@@ -71,18 +71,18 @@ async def bypass_check(client, message):
         if is_excep_link(link):
             parse_data.append(f"{bp_link}\n\n")
         else:
-            parse_data.append(f"<b>Source:</b> {link}{bp_link}")
+            parse_data.append(f"\n\n<b>Source:</b> {link}{bp_link}")
 
     end = time()
 
     if len(parse_data) != 0:
-        parse_data[-1] = (parse_data[-1] + f" \n <b>Power by [BalaPriyan](https://t.me/BalaPriyanBots) )" )
+        parse_data[-1] = (parse_data[-1] + f" \n\n <b>Power by</b>: @BalaPriyanBots" )
     tg_txt = "\n\n"
     for tg_data in parse_data:
         tg_txt += tg_data
         if len(tg_txt) > 4000:
             await wait_msg.edit(tg_txt, disable_web_page_preview=True)
-            wait_msg = await message.reply("<i>Fetching...</i>", reply_to_message_id=wait_msg.id,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/BalapriyanBots",),]]),)
+            wait_msg = await message.reply("<i>Fetching...</i> \n\n <b>Power by</b>: @BalaPriyanBots", reply_to_message_id=wait_msg.id,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Owner", url="https://t.me/BalaPriyan"),InlineKeyboardButton("Update",url="https://t.me/BalapriyanBots",),]]),)
             tg_txt = ""
             await asleep(2.5)
 
