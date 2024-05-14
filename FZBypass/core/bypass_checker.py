@@ -347,7 +347,7 @@ async def direct_link_checker(link, onlylink=False):
         )
     elif bool(match(r"https?:\/\/publicearn\.\S+", link)):
         blink = await transcript(
-            link, "https://publicearn.com/", "https://careersides.com/", 4.9
+            link, "https://publicearn.com/", "https://edukaroo.com/", 4.9
         )
     elif bool(match(r"https?:\/\/modijiurl\.\S+", link)):
         blink = await transcript(
